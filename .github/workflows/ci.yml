@@ -24,7 +24,7 @@ jobs:
           
         # add .nojekyll file
         - name: Add .nojekyll file
-          run: touch release/wwwroot/.nojekyll
+          run: touch bin/Release/netstandard2.1/publish/wwwroot.nojekyll
 
         # Publish the website
         - name: GitHub Pages action
