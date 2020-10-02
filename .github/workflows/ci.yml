@@ -20,9 +20,7 @@ jobs:
 
         # Generate the website
         - name: Publish
-          run: |
-          cp wwwroot/index.html wwwroot/404.html
-          dotnet publish BlazorWebAssembly.csproj --configuration Release
+          run: dotnet publish BlazorWebAssembly.csproj --configuration Release
 
         # Publish the website
         - name: GitHub Pages action
