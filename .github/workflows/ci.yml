@@ -21,6 +21,14 @@ jobs:
         # Generate the website
         - name: Publish
           run: dotnet publish BlazorWebAssembly.csproj --configuration Release
+          
+        # change the base-tag in index.html
+        - name: Change base-tag in index.html from / to BlazorWebAssembly
+          run: sed -i 's/<base href="\/" \/>/<base href="/BlazorWebAssembly\/" \/>/g' release/wwwroot/index.html
+          
+        # add .nojekyll file
+        - name: Add .nojekyll file
+          run: touch release/wwwroot/.nojekyll
 
         # Publish the website
         - name: GitHub Pages action
